@@ -16,7 +16,7 @@ function App() {
         if (storedTodos && storedTodos.length > 1) {
             setMademade(1)
         }
-        if (storedTodos.length < 0) {
+        if (storedTodos && (storedTodos.length < 1)) {
             setMademade(-1)
         }
     }, [])
