@@ -9,13 +9,14 @@ function App() {
     useEffect(() => {
         const storedTodos = JSON.parse(localStorage.getItem('todos'));
         const storedMademade = JSON.parse(localStorage.getItem('mademade'));
-        if (storedTodos.length > 0) {
+        if (storedTodos && storedTodos.length > 0) {
             setTodos(storedTodos)   
-        }
-        if (storedTodos.length > 0 && storedMademade > -2) {
             setMademade(storedMademade)
         }
-        if (storedTodos.length > 0 && storedMademade < -2) {
+        if (storedTodos && storedTodos.length > 1) {
+            setMademade(1)
+        }
+        if (storedTodos.length < 0) {
             setMademade(-1)
         }
     }, [])
@@ -23,7 +24,7 @@ function App() {
     useEffect(() => {
         localStorage.setItem('todos', JSON.stringify(todos))
         localStorage.setItem('mademade', JSON.stringify(mademade))
-    },   [todos])
+    },   [todos , mademade])
 
    
     function addTodo(text) {
@@ -44,10 +45,22 @@ function App() {
         setTodos(([]))
     }
 
+
+
     return (
     <>
             <h1>Todo App</h1>
-            <form
+            <div>
+                
+                {mademade > 0 && <button
+                    onClick={() => {
+                        clearTodo()
+                        setMademade(-1)
+                    }
+                    }> Clear All Items </button>
+                }
+            </div>
+            <form name='form'
                 onSubmit={(event) => {
                     event.preventDefault();
                     setMademade(mademade+1);
@@ -73,15 +86,7 @@ function App() {
                     
                 </li>
                 ))}
-                <div>
-                    {mademade > 0 && <button
-                        onClick={() => {
-                            clearTodo()
-                            setMademade(-1)
-                        }
-                        }> Clear All Items </button>
-                    }
-                    </div>
+
 
             </ul>
          
