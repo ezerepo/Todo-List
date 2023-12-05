@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/ezerepo/Todo-List/static/css/main.109ea276.css",
+    "main.js": "/ezerepo/Todo-List/static/js/main.a283d218.js",
+    "index.html": "/ezerepo/Todo-List/index.html",
+    "main.109ea276.css.map": "/ezerepo/Todo-List/static/css/main.109ea276.css.map",
+    "main.a283d218.js.map": "/ezerepo/Todo-List/static/js/main.a283d218.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.109ea276.css",
+    "static/js/main.a283d218.js"
+  ]
+}
